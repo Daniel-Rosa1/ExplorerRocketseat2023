@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font: 62.5%;
+
+    --base-color:240;
+    --color-text: hsla(var(--base-color), 6%, 21%, 1);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.timer{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
+}
+
+#countdown{
+    font-size: clamp(7rem, 3rem + 8vw ,8rem);
+    line-height: clamp(1rem, 2rem + 20vh ,14.8rem);
+    color: var(--color-text);
+}
+
+
+#controls{
+    display: flex;
+    gap: clamp(3rem, 1rem + 3vw,4rem);
+}
+
+#controls button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+}
+
+#controls button:hover svg path{
+    fill:#02799D;
+}
+
+#sounds{
+    width: clamp(21rem, 2rem + 20vw ,30rem);
+
+    flex-wrap: wrap;
+    display: flex;
+    gap: 3.2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#sounds button{
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+#sounds button:hover svg path:nth-child(2){
+    fill:#00c3ff;
+}
+
+ button.selected svg path:nth-child(1){
+    fill:#02799D;
+}
+ button.selected svg path:nth-child(2){
+    fill:#FFF;
+}
+
+@media (max-width: 786px){
+    main{
+        flex-direction: column;
+    }
+}
