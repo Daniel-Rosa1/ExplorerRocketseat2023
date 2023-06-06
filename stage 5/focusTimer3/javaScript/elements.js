@@ -9,7 +9,8 @@ const buttonPlay ={
     hideOrNot(){
         buttonPlay.play.classList.toggle('hide')
     }
-    }
+}
+
 const buttonPause ={
     pause:document.querySelector(".pause"),
     hideOrNot(){
@@ -45,6 +46,26 @@ const buttonFirePlace ={
     },
 }
 
+const buttonLightMode = {
+    lightMode: document.querySelector("#ligthMode"),
+    open(){
+        buttonLightMode.lightMode.classList.remove("hide")
+    },
+    close(){
+        buttonLightMode.lightMode.classList.add('hide')
+    }
+}
+
+const buttonDarkMode = {
+    darkMode: document.querySelector("#darkMode"),
+    open(){
+        buttonDarkMode.darkMode.classList.remove("hide")
+    },
+    close(){
+        buttonDarkMode.darkMode.classList.add("hide")
+    }
+}
+
 export{
     minutesDisplay,
     secondsDisplay,
@@ -57,4 +78,6 @@ export{
     buttonRain,
     buttonCoffeShop,
     buttonFirePlace,
+    buttonLightMode,
+    buttonDarkMode
 }

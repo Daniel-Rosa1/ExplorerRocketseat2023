@@ -9,14 +9,17 @@
 
     --base-color:240;
     --white-color:#FFF;
-    --light-color-selected:hsl(194, 97%, 31%);
-    --color-text: hsla(var(--base-color), 6%, 21%, 1);
-    --color-input-range: hsla(var(--base-color), 6%, 21%, 1);
+    
+    --light-color-selected-light-mode:hsl(194, 97%, 31%);
+    --color-text-light-mode: hsla(var(--base-color), 6%, 21%, 1);
+    --color-input-range-light-mode: hsla(var(--base-color), 6%, 21%, 1);
+    --background-light-mode: #ffffff ;
 }
 
 body{
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
+    background: var(--background-light-mode);
 }
 
 main{
@@ -27,6 +30,8 @@ main{
     justify-content: space-evenly;
 
     position: relative;
+
+    transition: 400ms;
 }
 
 .lightmode{
@@ -39,7 +44,7 @@ main{
 }
 
 .lightmode:hover svg path{
-    fill: var(--light-color-selected);
+    fill: var(--light-color-selected-light-mode);
 }
 
 .timer{
@@ -56,9 +61,8 @@ main{
 #countdown{
     font-size: clamp(7rem, 7rem + 8vw ,12.6rem);
     line-height: clamp(1rem, 2rem + 20vh ,14.8rem);
-    color: var(--color-text);
+    color: var(--color-text-light-mode);
 }
-
 
 #controls{
     display: flex;
@@ -92,12 +96,13 @@ main{
     gap: 3.2rem;
     align-items: center;
 
-    background-color: hsla(240, 9%, 89%, 1);
+    background-color: rgb(224, 229, 226);
     
     cursor: pointer;
 
     padding:2.4rem;
     border-radius: 2.4rem;
+    transition: 400ms;
 }
 
 .range{
@@ -109,12 +114,11 @@ main{
     -webkit-appearance: none;
     appearance: none;
     width: 9rem;
-    
 }
 
 .wrapper-card input::-webkit-slider-runnable-track{
-    background: var(--color-input-range);
-    width: 100%;
+    background: var(--color-input-range-light-mode);
+    width: 9rem;
     height: .4rem;
 }
 
@@ -128,11 +132,11 @@ main{
     margin-top: -5px;
 
     border-radius: 50%;
-    background: var(--color-input-range);
+    background: var(--color-input-range-light-mode);
 }
 
 .wrapper-card:hover{
-    background-color: var(--light-color-selected);
+    background-color: var(--light-color-selected-light-mode);
 }
 
 .wrapper-card:hover input::-webkit-slider-runnable-track{
@@ -150,7 +154,7 @@ main{
 .wrapper-card.selected svg path,
 .wrapper-card.wrapper-card.selected{
     fill:var(--white-color);
-    background: var(--light-color-selected);
+    background: var(--light-color-selected-light-mode);
 }
 
 .wrapper-card.wrapper-card.selected input::-webkit-slider-thumb,
@@ -158,9 +162,45 @@ main{
     background-color: var(--white-color);
 }
 
+/* dark mode */
+
+.control-dark-mode svg path{
+    fill: #C4C4CC;
+}
+
+.card-dark-mode,
+.card-dark-mode svg path{
+    background-color: #29292E;
+    fill: #C4C4CC;
+}
+
+.card-dark-mode:hover{
+    background-color:#0A3442;
+}
+
+.wrapper-card.card-dark-mode.selected{
+    background-color:#0A3442;
+}
+
+.card-dark-mode input::-webkit-slider-runnable-track,
+.card-dark-mode input::-webkit-slider-thumb{
+    background: #FFF;
+}
+
+/* midias */
 
 @media (max-width: 786px){
     main{
         flex-direction: column;
+    }
+
+    #sounds{
+        width: 60vw;
+    }
+}
+
+@media (max-width: 515px){
+    #sounds{
+        width: 100vw;
     }
 }
