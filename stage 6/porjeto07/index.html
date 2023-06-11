@@ -20,9 +20,25 @@
     
 
     <script>
+
+        const routes = {
+            "/": "/pages/home.html",
+            "about": "/pages/about.html",
+            "contact": "/pages/contact.html",
+            404: "/pages/404.html",
+        }
+
         function route(event){
             event = event || window.event
             event.preventDefault()
+
+            handle()
+        }
+
+        function handle(){
+            const pathname = window.location.pathname
+
+            console.log(pathname)
         }
     </script>
 </body>
