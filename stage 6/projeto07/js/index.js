@@ -1,30 +1,13 @@
+import Router from './router.js'
 
-const routes = {
-    "/": "/stage 6/projeto07/pages/home.html",
-    "/about": "/stage 6/projeto07/pages/about.html",
-    "/contact": "/stage 6/projeto07/pages/contact.html",
-    404: "/stage 6/projeto07/pages/404.html",
-}
+const router = new Router()
 
-function route(event){
-    event = event || window.event
-    event.preventDefault()
+router.add('/','/stage 6/projeto07/pages/home.html')
+router.add('/about','/stage 6/projeto07/pages/about.html')
+router.add('/contact','/stage 6/projeto07/pages/contact.html')
+router.add('404','/stage 6/projeto07/pages/404.html')
 
-    window.history.pushState({},"", event.target.href)
 
-    handle()
-}
-
-function handle(){
-    const {pathname} = window.location
-    const route = routes[pathname] || routes[404]
-
-    fetch(route)
-    .then(data => data.text())
-    .then(html =>{
-        document.querySelector('#app').innerHTML = html
-    })
-}
-
-handle()
-window.onpopstate = () => handle()
+router.handle()
+window.onpopstate = () => router.handle()
+window.route = () => router.route()
